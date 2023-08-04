@@ -1,0 +1,23 @@
+body {
+  background-image: url("assets/Paper.png");
+}
+
+
+/* TODO: Импортнуть и прописать все Mookmania шрифты пример под*/
+@font-face {
+  font-family: Mookmania;
+  src: url("@/assets/fonts/Mookmania/Mookmania.otf") format("opentype");
+}
+.normal-text {
+  font-family: 'Mookmania', sans-serif;
+  color: black;
+  font-size:medium;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+.header {
+  font-family: 'PT Sans', sans-serif;
+  color: #301c15;
+  font-size: xx-large;
+}
