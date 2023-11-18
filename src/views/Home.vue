@@ -12,8 +12,8 @@
         Через этот движок реализовать набор пресетных приключений.
         </div>
     </div>
-    <div>
-        Made with
+    <div align="center" class="normal-text">Made with</div>
+    <div align="center">
         <img src="../assets/icons/ts.svg" alt="vue" />
         <img src="../assets/icons/vite.svg" alt="s" />
         <img src="../assets/icons/vue.svg" alt="vssue" />

@@ -2,7 +2,7 @@ body {
   background-image: url("assets/Paper.png");
 }
 
-
+/* Основной текст */
 /* TODO: Импортнуть и прописать все Mookmania шрифты пример под*/
 @font-face {
   font-family: Mookmania;
@@ -21,3 +21,7 @@ body {
   color: #301c15;
   font-size: xx-large;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Open+Sans:wght@300&family=PT+Sans&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=PT+Sans&display=swap');
