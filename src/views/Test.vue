@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Map from "@/components/Interactive-Map/Map.vue";
 import Alert from "@/components/Interactive-Map/Alert.vue";
-// import Sidebar from "@/components/Interactive-Map/Sidebar.vue";
+import Sidebar from "@/components/Interactive-Map/Sidebar.vue";
 import { alerts } from "@/store/app";
-// import { initialize } from "@/store/data";
-// import { onMounted } from "vue";
+import { initialize } from "@/store/data";
+import { onMounted } from "vue";
 
 // onMounted(() => {
 //   initialize();
@@ -13,7 +13,7 @@ import { alerts } from "@/store/app";
 </script>
 
 <template>
-    <!-- <div class="home">
+    <div class="home">
         ddd    
         <Map></Map>
         <div class="alerts">
@@ -23,7 +23,7 @@ import { alerts } from "@/store/app";
     </div>
     <div>
       dddss
-    </div>    -->
+    </div>   
 </template>
 
 <style lang="scss">

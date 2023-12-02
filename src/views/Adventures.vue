@@ -35,15 +35,14 @@ export default{
     Настоящий классик я бы даже сказал плезантли
     <br/>
 
-    <div class="flex-container"
-        v-for="adv in phandalin" :key="adv.name"
-        :to="adv.to"
-        >
-        <div class="flex-item">
-            <img :src="adv.pic" alt="vue" />
-            <figcaption>{{ adv.name }}</figcaption>
-            <!-- <button>Start</button> -->
-        </div>
+    <div class="flex-container">
+        <router-link 
+            v-for="adv in phandalin" :key="adv.name"
+                :to="adv.to"
+                class="flex-item">
+                <img :src="adv.pic" alt="vue" />
+                <figcaption>{{ adv.name }}</figcaption>
+        </router-link>
     </div>
     
     <div v-for="adv in adventures" :key="adv.name"
