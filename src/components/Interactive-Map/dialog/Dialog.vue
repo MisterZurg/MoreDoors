@@ -44,7 +44,7 @@ const dialogStyle = computed(() => ({
 }));
 </script>
 <style scoped lang="scss">
-@import "../../assets/_variables.scss";
+@import "../../../assets/_variables.scss";
 
 .dialogWrapper {
     position: absolute;

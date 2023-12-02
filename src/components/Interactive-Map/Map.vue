@@ -1,38 +1,11 @@
-<template>
-    <div>
-        <div
-            class="map"
-            ref="componentRef"
-            @mousedown="onMouseDown"
-            @mouseup="moving = false"
-            @mousemove.prevent="onMouseMove"
-            @wheel="zoom"
-            @click="useTool"
-            :style="mapStyle"
-        >
-            <div class="mapContent" :style="mapPositionStyle" ref="mapRef">
-                <img :src="`${currentMapImageSrc}`" alt="" class="image" ref="image" />
-                <Pin v-for="pin in pins" :key="pin.id" :pin="pin" :style="pinStyle" @edit="editPin"></Pin>
-            </div>
-        </div>
-        <Button class="addBtn" @click="selectAddTool" :primary="true"> <Icon name="md-add-round"></Icon></Button>
-        <PinDialog
-            :open="pinDialogOpen"
-            :preset-values="pinDialogPresetValues"
-            @close="closePinDialog"
-            @save="upsertPrivatePin"
-            @delete="deletePin"
-        />
-    </div>
-</template>
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
-import PinDialog from "../components/dialog/PinDialog.vue";
-import Button from "./Button.vue";
-import Pin from "./Pin.vue";
-import { addAlert, currentMapImageSrc, currentArea } from "../store/app";
-import { pins, upsertPrivatePin, deletePrivatePin } from "../store/data";
-import { PinOutput, PinValidator } from "../types/validators";
+import PinDialog from "@/components/Interactive-Map/dialog/PinDialog.vue";
+import Button from "@/components/Interactive-Map/Button.vue";
+import Pin from "@/components/Interactive-Map/Pin.vue";
+import { addAlert, currentMapImageSrc, currentArea } from "@/store/app";
+import { pins, upsertPrivatePin, deletePrivatePin } from "@/store/data";
+import { PinOutput, PinValidator } from "@/types/validators";
 
 const moving = ref(false);
 const mapPosition = reactive({
@@ -132,8 +105,35 @@ const deletePin = () => {
     if (pinDialogPresetValues.value) deletePrivatePin(pinDialogPresetValues.value.id);
 };
 </script>
+<template>
+    <div>
+        <div
+            class="map"
+            ref="componentRef"
+            @mousedown="onMouseDown"
+            @mouseup="moving = false"
+            @mousemove.prevent="onMouseMove"
+            @wheel="zoom"
+            @click="useTool"
+            :style="mapStyle"
+        >
+            <div class="mapContent" :style="mapPositionStyle" ref="mapRef">
+                <img :src="`${currentMapImageSrc}`" alt="" class="image" ref="image" />
+                <Pin v-for="pin in pins" :key="pin.id" :pin="pin" :style="pinStyle" @edit="editPin"></Pin>
+            </div>
+        </div>
+        <Button class="addBtn" @click="selectAddTool" :primary="true"> <Icon name="md-add-round"></Icon></Button>
+        <PinDialog
+            :open="pinDialogOpen"
+            :preset-values="pinDialogPresetValues"
+            @close="closePinDialog"
+            @save="upsertPrivatePin"
+            @delete="deletePin"
+        />
+    </div>
+</template>
 <style scoped lang="scss">
-@import "../assets/_variables.scss";
+@import "../../assets/_variables.scss";
 
 .addPinDialog {
     cursor: initial;

@@ -6,7 +6,7 @@
 </template>
 <script setup lang="ts">
 import { PropType } from "vue";
-import { IAlert } from "../types/Data";
+import { IAlert } from "../../types/Data";
 
 const props = defineProps({
     alert: {

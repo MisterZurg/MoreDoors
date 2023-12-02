@@ -2,8 +2,8 @@
 export default {
     setup() {
       const routes = ([
-        {url:"/",    text:"Главная"}, // Тут Должен Буть Мордовский Глаз
-        {url:"/adventures",    text:"Приключения"},
+        {url:"/", text:"Главная"}, // Тут Должен Буть Мордовский Глаз
+        {url:"/adventures", text:"Приключения"},
         {url:"/sign-up", text:"Sign Up"},
         {url:"/sign-in", text:"Sign Down"},
         {url:"/test", text:"ТЕСТ"},
@@ -11,7 +11,7 @@ export default {
     return {routes}  
   }
 }
-// import reactive from "vue"
+import reactive from "vue"
     
 </script>
 
@@ -27,7 +27,7 @@ export default {
 </template>
   
 <style scoped>
-/* .nav {
+.nav {
     background: #fff;
     font-weight: bold;
     padding: 0 20px;
@@ -44,7 +44,7 @@ export default {
   position: absolute;
   padding: auto;
   margin: auto;
-} */
+}
 
 
 .flex-container {
@@ -62,7 +62,7 @@ export default {
  font-size: 14px;
  border: 2px solid #301c15;
  color: #301c15;
- /* display: flexbox; */
+ display: flexbox;
 }
 
 

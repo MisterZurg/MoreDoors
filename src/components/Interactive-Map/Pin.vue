@@ -1,3 +1,26 @@
+<script setup lang="ts">
+import { computed, PropType, ref } from "vue";
+import { PinOutput } from "@/types/validators";
+import { types } from "@/store/data";
+import Button from "@/components/Interactive-Map/Button.vue";
+import { currentArea } from "@/store/app";
+
+const props = defineProps({
+    pin: {
+        type: Object as PropType<PinOutput>,
+    },
+});
+
+const detailsOpen = ref(false);
+const pinType = computed(() => types.value.find((t) => t.id === props.pin?.typeId));
+const visible = computed(() => pinType.value?.visible && currentArea.value === props.pin?.area);
+
+const pinStyle = computed(() => ({
+    "margin-left": `${props.pin?.x}px`,
+    "margin-top": `${props.pin?.y}px`,
+    display: visible.value ? "initial" : "none",
+}));
+</script>
 <template>
     <div class="pin" :style="pinStyle">
         <div class="clicky" @click="detailsOpen = !detailsOpen">
@@ -31,31 +54,8 @@
         </div>
     </div>
 </template>
-<script setup lang="ts">
-import { computed, PropType, ref } from "vue";
-import { PinOutput } from "../types/validators";
-import { types } from "../store/data";
-import Button from "./Button.vue";
-import { currentArea } from "../store/app";
-
-const props = defineProps({
-    pin: {
-        type: Object as PropType<PinOutput>,
-    },
-});
-
-const detailsOpen = ref(false);
-const pinType = computed(() => types.value.find((t) => t.id === props.pin?.typeId));
-const visible = computed(() => pinType.value?.visible && currentArea.value === props.pin?.area);
-
-const pinStyle = computed(() => ({
-    "margin-left": `${props.pin?.x}px`,
-    "margin-top": `${props.pin?.y}px`,
-    display: visible.value ? "initial" : "none",
-}));
-</script>
 <style scoped lang="scss">
-@import "../assets/_variables.scss";
+@import "../../assets/_variables.scss";
 
 .pin {
     position: absolute;

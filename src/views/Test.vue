@@ -1,12 +1,105 @@
 <script setup lang="ts">
-import Map from "@/components/dnd-core/Map.vue"
-import Phandalin from "@/views/adventures/lost-mines/lost-mines.vue"
+import Map from "@/components/Interactive-Map/Map.vue";
+import Alert from "@/components/Interactive-Map/Alert.vue";
+// import Sidebar from "@/components/Interactive-Map/Sidebar.vue";
+import { alerts } from "@/store/app";
+// import { initialize } from "@/store/data";
+// import { onMounted } from "vue";
+
+// onMounted(() => {
+//   initialize();
+// });
+
 </script>
 
 <template>
-    <Map/>
-    <!-- <Phandalin></Phandalin> -->
+    <!-- <div class="home">
+        ddd    
+        <Map></Map>
+        <div class="alerts">
+            <Alert v-for="alert in alerts" :key="alert.id" :alert="alert"></Alert>
+        </div>
+        ddd
+    </div>
+    <div>
+      dddss
+    </div>    -->
 </template>
 
-<style>
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;700&display=swap");
+@import "../assets/_variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Baloo Tamma 2";
+  font-weight: 500;
+  color: $textColor;
+}
+
+body {
+  overflow: hidden;
+  background-color: $backgroundColor;
+}
+
+.horizontalFlex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &.right {
+      justify-content: flex-end;
+  }
+
+  &.left {
+      justify-content: flex-start;
+  }
+
+  &.gap10 {
+      grid-gap: 10px;
+  }
+}
+
+.alerts {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+// HOME styles
+
+.home {
+  display: grid;
+
+  &.authenticated {
+      grid-template-rows: 56px 1fr;
+      grid-template-areas:
+          "adminBar map"
+          "sidebar map";
+  }
+
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  .map {
+      grid-area: map;
+  }
+
+  .sidebar {
+      grid-area: sidebar;
+  }
+
+  .adminBar {
+      grid-area: adminBar;
+  }
+}
 </style>

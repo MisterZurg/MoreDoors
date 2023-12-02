@@ -6,8 +6,8 @@ import David from '@/assets/pics/David.jpeg'
 export default{
     setup() {
         // Здесь будет просто хардкод ибо они менятся не будут
-        const phandalin = ref([
-            {name:"Затерянные Рудники Фанделвера", pic:David, to:""},
+        const phandalin = ([
+            {name:"Затерянные Рудники Фанделвера", pic:David, to:"/pandalin-0"},
             {name:"Дракон Ледяного Пика", pic:David, to:""}
         ])
 
@@ -30,16 +30,19 @@ export default{
 </script>
 
 <template>
+<!--  -->
 <div>
     Настоящий классик я бы даже сказал плезантли
     <br/>
 
     <div class="flex-container"
         v-for="adv in phandalin" :key="adv.name"
+        :to="adv.to"
         >
         <div class="flex-item">
             <img :src="adv.pic" alt="vue" />
-            {{ adv.name }}
+            <figcaption>{{ adv.name }}</figcaption>
+            <!-- <button>Start</button> -->
         </div>
     </div>
     

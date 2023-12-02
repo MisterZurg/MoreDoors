@@ -38,7 +38,7 @@ const value = computed({
 });
 </script>
 <style scoped lang="scss">
-@import "../../assets/_variables.scss";
+@import "../../../assets/_variables.scss";
 
 .textinput {
     background-color: $red;

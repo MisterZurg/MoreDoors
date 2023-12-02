@@ -5,6 +5,7 @@ import SignUp from "@/views/SignUp.vue"
 import SignIn from "@/views/SignIn.vue"
 import Test  from "@/views/Test.vue"
 import Adventures from '@/views/Adventures.vue'
+// import LostMines_0_Intro from "@/views/adventures/lost-mines/0-Intro.vue"
 
 const routes = [
     {
@@ -31,7 +32,12 @@ const routes = [
         path: "/test", 
         name: "Test", 
         component: Test
-    }, 
+    },
+    // {
+    //     path: "", 
+    //     name: "pandalin-0", 
+    //     component: LostMines_0_Intro
+    // },
 ]
 
 const router = createRouter({

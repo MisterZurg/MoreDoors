@@ -1,31 +1,7 @@
-<template>
-    <Dialog class="pinDialog" :title="title" :open="open" @close="close" :z-index="zIndex">
-        <template #content>
-            <p>x: {{ presetValues?.x }} y: {{ presetValues?.y }}</p>
-            <TextInput v-model="title" label="Name"></TextInput>
-            <TextInput v-model="imageUrl" label="Image-url"></TextInput>
-            <TextInput v-model="description" label="Description"></TextInput>
-            <Dropdown :values="types" label="Type" v-model="pinType">
-                <template #current="{ value }">
-                    <p>{{ `${value?.title ?? "Select one"}` }}</p>
-                </template>
-                <template #value="{ value }">
-                    <p>{{ `${value.title}` }}</p>
-                </template>
-            </Dropdown>
-            <p class="error" v-if="typeId === null">Please select a type.</p>
-        </template>
-        <template #actions>
-            <Button @click="copyJson">Copy Json</Button>
-            <Button @click="remove">Delete</Button>
-            <Button @click="save" primary>Save</Button>
-        </template>
-    </Dialog>
-</template>
 <script setup lang="ts">
 import { computed, PropType, ref, watch } from "vue";
-import { types } from "../../store/data";
-import { PinOutput, PinValidator } from "../../types/validators";
+import { types } from "@/store/data";
+import { PinOutput, PinValidator } from "@/types/validators";
 import Dialog from "./Dialog.vue";
 import Button from "../Button.vue";
 import TextInput from "../inputs/TextInput.vue";
@@ -116,4 +92,28 @@ const remove = () => {
     emit("close");
 };
 </script>
+<template>
+    <Dialog class="pinDialog" :title="title" :open="open" @close="close" :z-index="zIndex">
+        <template #content>
+            <p>x: {{ presetValues?.x }} y: {{ presetValues?.y }}</p>
+            <TextInput v-model="title" label="Name"></TextInput>
+            <TextInput v-model="imageUrl" label="Image-url"></TextInput>
+            <TextInput v-model="description" label="Description"></TextInput>
+            <Dropdown :values="types" label="Type" v-model="pinType">
+                <template #current="{ value }">
+                    <p>{{ `${value?.title ?? "Select one"}` }}</p>
+                </template>
+                <template #value="{ value }">
+                    <p>{{ `${value.title}` }}</p>
+                </template>
+            </Dropdown>
+            <p class="error" v-if="typeId === null">Please select a type.</p>
+        </template>
+        <template #actions>
+            <Button @click="copyJson">Copy Json</Button>
+            <Button @click="remove">Delete</Button>
+            <Button @click="save" primary>Save</Button>
+        </template>
+    </Dialog>
+</template>
 <style scoped></style>

@@ -18,7 +18,7 @@
 </template>
 <script setup lang="ts">
 import { computed, PropType, ref } from "vue";
-import { IType } from "../../types/Data";
+import { IType } from "../../../types/Data";
 import Button from "../Button.vue";
 
 const emit = defineEmits<{
@@ -51,7 +51,7 @@ const selectValue = (value: IType) => {
 };
 </script>
 <style scoped lang="scss">
-@import "../../assets/_variables.scss";
+@import "../../../assets/_variables.scss";
 
 .dropdown {
     transition: all 200ms ease;
